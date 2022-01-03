@@ -5,8 +5,6 @@ const Header = () => {
     <div> 
       <h1>BlogRank by Tianyi & Yiyuan </h1>
     </div>
-    
-
   );
 };
 
