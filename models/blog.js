@@ -1,3 +1,4 @@
+const { integer } = require("check-types");
 const mongoose = require("mongoose");
 
 //schema for projects
@@ -21,6 +22,9 @@ const blogSchema = new mongoose.Schema({
   },
   image: {
     type: String,
+  },
+  upvotes:{
+    type: Number,
   },
   comments: {
     type: Array,

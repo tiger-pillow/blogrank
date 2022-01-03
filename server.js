@@ -10,36 +10,37 @@ const uri =
   "mongodb+srv://tma8:123456public1998@cluster0.nrnmc.mongodb.net/newblog?retryWrites=true&w=majority";
 //Connect to MongoDB
 
+/*
 async function main(){
 
     await MongoClient.connect(uri, function(err, db){
         console.log("Connected to database...")
         const blogs = [
-            { name: 'Wait but Why', url: 'https://waitbutwhy.com/', author: "N/A", tags: ["Random"], image: null, comments: []},
+            { name: 'Paul Graham\'s Blog', url: 'http://www.paulgraham.com/', author: "Paul Graham", tags: ["Startups", "Founder", "Technology", "Attitude"], image: null, upvotes: 0, comments: []},
+            { name: 'Wait but Why', url: 'https://waitbutwhy.com/', author: "N/A", tags: ["Random"], image: null, upvotes: 0, comments: []},
+            { name: '编程随想的博客', url: 'https://program-think.blogspot.com/', author: "N/A", tags: ["Programming", "Technology", "Politics"], image: null, upvotes: 0, comments: []},
+            { name: 'Naval', url: 'https://nav.al/', author: "Naval Ravikant", tags: ["Founder", "Technology", "Editer's Pick"], image: null, upvotes: 0, comments: []},
+            { name: 'Ideas to Change Your Life', url: 'https://markmanson.net/', author: "Mark Manson", tags: ["Self Help", "Editer's Pick"], image: null, upvotes: 0, comments: []},
         ];
         db.collection("blogs").insertMany(blogs)
     });
-    // await client.close();
+    await client.close();
 }
 
-main().catch(console.error);
+main().catch(console.error);*/
 
 
-/*
-mongoose
-  .connect(db, {
+
+MongoClient
+  .connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true
     })
   .then(function (){
       console.log("Connected to database...")
-        const blogs = [
-            { name: 'Paul Graham', url: 'http://www.paulgraham.com/', author: "Paul Graham"},
-        ];
-        db.Collection("blogs").insertMany(blogs)
     }
     )
-  .catch((err) => console.log(err));*/
+  .catch((err) => console.log(err));
 
 
 app.use(cors());
