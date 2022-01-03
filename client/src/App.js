@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import Pages from './pages/index'
+import Pages from './pages/index';
+import React from 'react';
 
 function App() {
   return (
