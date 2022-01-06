@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Blog = require("../models/blog");
+const Blog = require("../models/blog.js");
 
 // insert a blog
 router.post("/insertBlog", function (req, res) {
@@ -11,9 +11,25 @@ router.post("/insertBlog", function (req, res) {
 router.get("/", function (req, res) {
     Blog.find({})
       .then((blogs) => {
-        res.send(blogs);
+        res.end(blogs);
+        console.log(`yes`);
       });
   });
+
+// get all blogs gladys' version 
+router.get('/getblogs', async (req, res) => {
+  const allBlogs = await Blog.find({}, (err, blogData) => {
+    if (err) throw err;
+    console.log(`running getblogs`);
+    if (blogData) {
+      res.send(blogData);
+    } else {
+      res.send();
+    }
+  });
+});
+
+
 
 // Get blogs based on tags
 router.get("/filters", function (req, res) {
