@@ -10,14 +10,19 @@ router.post("/insertBlog", function (req, res) {
 
 router.post("/insertBlogYiyuan", function (req, res) {
   const newBlog = new Blog({
-    name: req.body,
+    name: "hahaha"
   });
-  newBlog.save((err)=>{
-    if (err) {
-      console.log(err);}
-    })
+  newBlog.save();
+  res.redirect("/getAllBlogs");
 
 });
+
+// (err) => {
+//   if (err) {
+//     console.log(err);
+//   }
+//   res.end();
+// })
 
 // Get all blogs
 router.get("/getAllBlogs", function (req, res) {

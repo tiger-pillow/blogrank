@@ -10,7 +10,7 @@ const BlogCard = () => {
 
 
   const fetchBlogs = async() => {
-    const data = await fetch('http://localhost:4000/getAllBlogs');
+    const data = await fetch('/getAllBlogs');
     const items = await data.json();
     console.log("fetched data");
     setItems(items);

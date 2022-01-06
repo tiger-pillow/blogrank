@@ -24,7 +24,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "devstart": "nodemon server.js",
-    "server": "nodemon server.js --ignore \"**/scripts/**\"",
+    "server": "nodemon server.js --ignore client --ignore \"**/scripts/**\"",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "client": "npm run start"
   },
