@@ -2,10 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const blogRoute = require('./routes/blog.js');
 const mongoose = require('mongoose');
+const cors = require("cors");
 
 require('dotenv/config');
 
 const app = express();
+app.use(cors());
+app.use('/', blogRoute);
 const PORT = process.env.PORT || 4000;
 
 // DB connection

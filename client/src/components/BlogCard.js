@@ -2,14 +2,15 @@ import React, { useEffect, useState }  from 'react';
 import {Card, Button} from 'react-bootstrap';
 
 const BlogCard = () => { 
+
+  const [items, setItems] = useState([]);
   useEffect(() => {
     fetchBlogs();
   }, []);
 
-  const [items, setItems] = useState([]);
 
   const fetchBlogs = async() => {
-    const data = await fetch('/getAllBlogs');
+    const data = await fetch('http://localhost:4000/');
     const items = await data.json();
     console.log("fetched data");
     setItems(items);

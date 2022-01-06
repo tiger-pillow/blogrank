@@ -11,25 +11,23 @@ router.post("/insertBlog", function (req, res) {
 router.get("/", function (req, res) {
     Blog.find({})
       .then((blogs) => {
-        res.end(blogs);
+        res.end(JSON.stringify(blogs));
         console.log(`yes`);
       });
   });
 
 // get all blogs gladys' version 
-router.get('/getblogs', async (req, res) => {
-  const allBlogs = await Blog.find({}, (err, blogData) => {
-    if (err) throw err;
-    console.log(`running getblogs`);
-    if (blogData) {
-      res.send(blogData);
-    } else {
-      res.send();
-    }
-  });
-});
-
-
+// router.get('/getblogs', async (req, res) => {
+//   const allBlogs = await Blog.find({}, (err, blogData) => {
+//     if (err) throw err;
+//     console.log(`running getblogs`);
+//     if (blogData) {
+//       res.send(JSON.stringify(blogData));
+//     } else {
+//       res.send();
+//     }
+//   });
+// });
 
 // Get blogs based on tags
 router.get("/filters", function (req, res) {
