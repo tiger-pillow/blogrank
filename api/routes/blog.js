@@ -4,30 +4,28 @@ const Blog = require("../models/blog.js");
 
 // insert a blog
 router.post("/insertBlog", function (req, res) {
-    Blog.create(req.body)
+    console.log("in insert function");
+    Blog.create(req.body);
+});
+
+router.post("/insertBlogYiyuan", function (req, res) {
+  const newBlog = new Blog({
+    name: req.body,
+  });
+  newBlog.save((err)=>{
+    if (err) {
+      console.log(err);}
+    })
+
 });
 
 // Get all blogs
-router.get("/", function (req, res) {
+router.get("/getAllBlogs", function (req, res) {
     Blog.find({})
       .then((blogs) => {
         res.end(JSON.stringify(blogs));
-        console.log(`yes`);
       });
   });
-
-// get all blogs gladys' version 
-// router.get('/getblogs', async (req, res) => {
-//   const allBlogs = await Blog.find({}, (err, blogData) => {
-//     if (err) throw err;
-//     console.log(`running getblogs`);
-//     if (blogData) {
-//       res.send(JSON.stringify(blogData));
-//     } else {
-//       res.send();
-//     }
-//   });
-// });
 
 // Get blogs based on tags
 router.get("/filters", function (req, res) {

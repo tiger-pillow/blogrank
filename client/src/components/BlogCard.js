@@ -10,14 +10,14 @@ const BlogCard = () => {
 
 
   const fetchBlogs = async() => {
-    const data = await fetch('http://localhost:4000/');
+    const data = await fetch('http://localhost:4000/getAllBlogs');
     const items = await data.json();
     console.log("fetched data");
     setItems(items);
   };
 
   return (
-    <div>
+    <div class="container-md pt-5">
       { items.map(item => (
         <Card>
           <Card.Header as="h5">{item.name}</Card.Header>
@@ -30,6 +30,7 @@ const BlogCard = () => {
             <Button variant="primary">upvotes {item.upvote} </Button>
           </Card.Body>
         </Card>
+
         ))
       }
     </div>
