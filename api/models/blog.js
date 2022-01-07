@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 //schema for projects
 const blogSchema = new mongoose.Schema({
-  host: { type: mongoose.Schema.Types.ObjectId, ref: "Host", required: true, },
+  // host: { type: mongoose.Schema.Types.ObjectId, ref: "Host", required: true, },
   name: { type: String, },
   url: { type: String, },
   author: {type: String,},

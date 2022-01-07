@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
 
 const SubmitForm = () => {
-
+  const [name, setName] = useState('');
+  const nameUpdate = (event) => { 
+    setName(event.target.value)
+  }
   return (
     <div class="container-md py-600">
       <form method="POST" action="/insertBlogYiyuan">
         <div class="mb-3">
           <label class="form-label"> Blog URL </label>
-          <input class="form-control" type="text" name="name" placeholder='google.com'></input>
+          <input name="name" class="form-control" type="text" placeholder='google.com'></input>
         </div>
 
         <div class="mb-3">
