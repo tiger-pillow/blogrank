@@ -10,11 +10,11 @@ router.post("/insertBlogYiyuan", function (req, res) {
     name: req.body.name,
     author: req.body.author,
     url: req.body.URL,
-    comment: {comment_textarea}
+    comment: [req.body.URL]
   });
   newBlog.save();
   console.log(newBlog);
-  res.redirect("/getAllBlogs");
+  res.redirect("/");
 
 });
 
