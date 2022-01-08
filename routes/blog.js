@@ -12,10 +12,14 @@ const Blog = require("../models/blog.js");
 // Insert blog, only added name part 
 router.post("/insertBlogYiyuan", function (req, res) {
   const newBlog = new Blog({
+<<<<<<< HEAD:routes/blog.js
     name: req.body.name,
     author: req.body.author,
     url: req.body.URL,
     comment: [req.body.URL]
+=======
+    name: req.body.name
+>>>>>>> parent of 3749a07e... added some other fields, need to fix the comment part since it's an array:api/routes/blog.js
   });
   newBlog.save();
   console.log(newBlog);
