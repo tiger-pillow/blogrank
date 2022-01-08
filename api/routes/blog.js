@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Blog = require("../models/blog.js");
+const Blog = require("../models/blogSchema.js");
 
 // insert a blog
 router.post("/insertBlog", function (req, res) {
@@ -10,20 +10,16 @@ router.post("/insertBlog", function (req, res) {
 
 router.post("/insertBlogYiyuan", function (req, res) {
   const newBlog = new Blog({
-    name: req.body.yiyuan
-    
+    name: req.body.name,
+    url: req.body.url,
+    author: req.body.author,
+    comment: [req.body.comment]
+
   });
   newBlog.save();
   res.redirect("/getAllBlogs");
 
 });
-
-// (err) => {
-//   if (err) {
-//     console.log(err);
-//   }
-//   res.end();
-// })
 
 // Get all blogs
 router.get("/getAllBlogs", function (req, res) {

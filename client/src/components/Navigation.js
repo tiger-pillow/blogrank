@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 
+
 const Navigation = () => { 
   return (
     <div>
@@ -10,8 +11,8 @@ const Navigation = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#link">Editor's Pick</Nav.Link>
+              <Nav.Link href="#">Home</Nav.Link>
+              <Nav.Link href="#">Editor's Pick</Nav.Link>
             </Nav>
 
             <NavDropdown class="d-flex justify-content-right" title="Categories" id="basic-nav-dropdown">
@@ -21,7 +22,7 @@ const Navigation = () => {
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#link">About</Nav.Link>
+            <Nav.Link href="/about">About</Nav.Link>
 
           </Navbar.Collapse>
         </Container>

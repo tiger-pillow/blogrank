@@ -1,4 +1,3 @@
-const { integer } = require("check-types");
 const mongoose = require("mongoose");
 
 //schema for projects
