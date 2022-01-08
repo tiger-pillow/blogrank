@@ -6,8 +6,18 @@ const SubmitForm = () => {
     <div class="container-md py-600">
       <form method="POST" action="/insertBlogYiyuan">
         <div class="mb-3">
+          <label class="form-label"> Blog Name </label>
+          <input class="form-control" type="text" name="name" placeholder="Jane's site...."></input>
+        </div>
+
+        <div class="mb-3">
           <label class="form-label"> Blog URL </label>
-          <input class="form-control" type="text" name="name" placeholder='google.com'></input>
+          <input class="form-control" type="text" name="url" placeholder='google.com'></input>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label"> Author </label>
+          <input class="form-control" type="text" name="author" placeholder='Jane Doe..'></input>
         </div>
 
         <div class="mb-3">
