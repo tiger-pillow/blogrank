@@ -1,27 +1,17 @@
 const express = require("express");
 const router = express.Router();
-const Blog = require("../models/blog.js");
+const Blog = require("../models/blog");
 
-
-// Insert blog, only added name part 
-router.post("/insertBlogYiyuan", function (req, res) {
-  const comment_textarea = req.body.comment;
-  const newBlog = new Blog({
-    name: req.body.name,
-    author: req.body.author,
-    url: req.body.URL,
-    comment: {comment_textarea}
-  });
-  newBlog.save();
-  console.log(newBlog);
-  res.redirect("/getAllBlogs");
+// insert a blog
+router.post("/insertBlog", function (req, res) {
+    Blog.create(req.body)
 });
 
 // Get all blogs
-router.get("/getAllBlogs", function (req, res) {
+router.get("/", function (req, res) {
     Blog.find({})
       .then((blogs) => {
-        res.end(JSON.stringify(blogs));
+        res.send(blogs);
       });
   });
 
