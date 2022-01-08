@@ -7,6 +7,7 @@ const SubmitForm = () => {
   }
   return (
     <div class="container-md py-600">
+      <h3>Submit a Blog Suggestion</h3>
       <form method="POST" action="/insertBlogYiyuan">
         <div class="mb-3">
           <label class="form-label"> Blog Name </label>
