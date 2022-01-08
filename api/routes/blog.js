@@ -10,7 +10,8 @@ router.post("/insertBlog", function (req, res) {
 
 router.post("/insertBlogYiyuan", function (req, res) {
   const newBlog = new Blog({
-    name: "hahaha"
+    name: req.body.yiyuan
+    
   });
   newBlog.save();
   res.redirect("/getAllBlogs");
