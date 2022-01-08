@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const blogRoute = require('./routes/blog.js');
+const userRoute = require('./routes/user.js');
 const mongoose = require('mongoose');
 const cors = require("cors");
 
@@ -11,10 +12,15 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use('/', blogRoute);
+app.use('/api/', userRoute);
 const PORT = process.env.PORT || 4000;
 
+const uri =
+  process.env.MONGODB_URI ||
+  "mongodb+srv://tma8:123456public1998@cluster0.nrnmc.mongodb.net/newblog?retryWrites=true&w=majority";
+
 // DB connection
-mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('DB Connected!');
   })
