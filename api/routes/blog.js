@@ -2,26 +2,27 @@ const express = require("express");
 const router = express.Router();
 const Blog = require("../models/blog.js");
 
-// // insert a blog
-// router.post("/insertBlog", function (req, res) {
-//     console.log("in insert function");
-//     console.log(req.body);
-//     Blog.create(req.body);
-// });
+// insert a blog
+router.post("/insertBlog", function (req, res) {
+    console.log("in insert function");
+    Blog.create(req.body);
+});
 
-// Insert blog, only added name part 
 router.post("/insertBlogYiyuan", function (req, res) {
   const newBlog = new Blog({
-    name: req.body.name,
-    author: req.body.author,
-    url: req.body.URL,
-    comment: [req.body.URL]
+    name: "hahaha"
   });
   newBlog.save();
-  console.log(newBlog);
-  res.redirect("/");
+  res.redirect("/getAllBlogs");
 
 });
+
+// (err) => {
+//   if (err) {
+//     console.log(err);
+//   }
+//   res.end();
+// })
 
 // Get all blogs
 router.get("/getAllBlogs", function (req, res) {

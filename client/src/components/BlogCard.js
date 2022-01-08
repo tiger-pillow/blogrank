@@ -22,6 +22,7 @@ const BlogCard = () => {
         <Card>
           <Card.Header as="h5">{item.name}</Card.Header>
           <Card.Body>
+            <Card.Title>{item.name}</Card.Title>
             <Card.Text>
               the author is {item.author}
             </Card.Text>
