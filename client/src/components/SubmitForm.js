@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
 const SubmitForm = () => {
-
+  const [name, setName] = useState('');
+  const nameUpdate = (event) => {
+    setName(event.target.value)
+  }
+  
   return (
     <div class="container-md py-600">
       <form method="POST" action="/insertBlogYiyuan">

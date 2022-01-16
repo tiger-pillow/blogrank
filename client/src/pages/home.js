@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import BlogCard from '../components/BlogCard'; 
 import Navigation from '../components/Navigation';
 import SubmitForm from '../components/SubmitForm';
@@ -12,7 +12,6 @@ function Home() {
       <Navigation></Navigation>
       <BlogCard></BlogCard>
       <SubmitForm></SubmitForm>
-     
     </div>
   );
 }

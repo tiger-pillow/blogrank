@@ -2,13 +2,9 @@ const express = require("express");
 const router = express.Router();
 const Blog = require("../models/blogSchema.js");
 
-// insert a blog
-router.post("/insertBlog", function (req, res) {
-    console.log("in insert function");
-    Blog.create(req.body);
-});
-
 router.post("/insertBlogYiyuan", function (req, res) {
+  console.log("inside post function");
+  console.log(req.body);
   const newBlog = new Blog({
     name: req.body.name,
     url: req.body.url,
@@ -17,7 +13,8 @@ router.post("/insertBlogYiyuan", function (req, res) {
 
   });
   newBlog.save();
-  res.redirect("/getAllBlogs");
+  console.log(newBlog);
+  res.redirect("/");
 
 });
 
