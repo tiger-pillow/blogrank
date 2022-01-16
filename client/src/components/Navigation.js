@@ -7,12 +7,15 @@ const Navigation = () => {
     <div>
       <Navbar bg="light" expand="lg">
         <Container>
-          <Navbar.Brand href="/">Blog Rank by Yiyuan & Tianyi </Navbar.Brand>
+          <Navbar.Brand href="/">Blog Rank </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link href="/editors_pick">Editor's Pick</Nav.Link>
+              <Nav.Link href="/submitForm">Submit</Nav.Link>
             </Nav>
+            
+            
 
             <NavDropdown class="d-flex justify-content-right" title="Categories" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Tech</NavDropdown.Item>

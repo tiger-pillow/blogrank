@@ -1,8 +1,8 @@
 import React from 'react';
-import BlogCard from './components/BlogCard'
 import Navigation from './components/Navigation'
-import SubmitForm from './components/SubmitForm'
+import SubmitFormPage from './pages/submit_form'
 import Home from './pages/home'
+import ErrorPage from './pages/error_page'
 import About from './pages/about'; 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -10,9 +10,12 @@ function App(){
   return (
     <div>
       <Router>
+        <Navigation></Navigation>
         <Routes>
           <Route path="/" element={ <Home/> } />
           <Route path="/about" element={<About/>}/>
+          <Route path="/submitForm" element={<SubmitFormPage/>} />
+          <Route path="*" element = {<ErrorPage/>} />
         </Routes>
       </Router>
     </div>
