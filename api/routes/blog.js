@@ -13,7 +13,6 @@ router.post("/insertBlogYiyuan", function (req, res) {
 
   });
   newBlog.save();
-  console.log(newBlog);
   res.redirect("/");
 
 });

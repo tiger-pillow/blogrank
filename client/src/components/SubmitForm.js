@@ -1,11 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useNavigate } from 'react';
 
 const SubmitForm = () => {
-  const [name, setName] = useState('');
-  const nameUpdate = (event) => {
-    setName(event.target.value)
-  }
-  
   return (
     <div class="container-md py-600">
       <form method="POST" action="/insertBlogYiyuan">
@@ -29,10 +24,13 @@ const SubmitForm = () => {
           <textarea class="form-control" id="comment" rows="3" placeholder="I like it because..."></textarea>
         </div>
         
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button> 
       </form>
     </div>
   )
 }
 
 export default SubmitForm; 
+
+// can be useful: 
+//onClick={() => { useNavigate("/") }}  
