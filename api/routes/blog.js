@@ -3,17 +3,16 @@ const router = express.Router();
 const Blog = require("../models/blogSchema.js");
 
 router.post("/insertBlogYiyuan", function (req, res) {
-  console.log("inside post function");
-  console.log(req.body);
+  const comment_text = req.body.comment; 
   const newBlog = new Blog({
     name: req.body.name,
     url: req.body.url,
     author: req.body.author,
-    comment: [req.body.comment]
+    comment: {comment_text}
 
   });
   newBlog.save();
-  res.redirect("/");
+  res.redirect("/submitForm");
 
 });
 

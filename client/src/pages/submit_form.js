@@ -1,14 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import BlogCard from '../components/BlogCard';
-import Navigation from '../components/Navigation';
 import SubmitForm from '../components/SubmitForm';
-import About from '../pages/about';
+import './Pages.css';
 
 const SubmitFormPage = () =>{ 
   return (
     <div>
-    <SubmitForm></SubmitForm>
+      <h3 className='GeneralText'>Tell us what blog you would like to include! </h3>
+      <SubmitForm></SubmitForm>
     </div> 
   )
 }

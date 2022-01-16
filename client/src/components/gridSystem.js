@@ -3,9 +3,9 @@ import {Container, Row, Col } from 'react-bootstrap';
 
 const GridSystem = ({colCount, children}) =>{
   let rowCount = Math.floor(children.length/ colCount) + 1
-  console.log("col count is :", colCount);
-  console.log("row count is :", rowCount);
-  console.log("children is ", children);
+  // console.log("col count is :", colCount);
+  // console.log("row count is :", rowCount);
+  // console.log("children is ", children);
   let index = 0 // keeps track of the current child we are on 
 
   const buildGrid = () => {

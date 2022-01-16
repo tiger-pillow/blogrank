@@ -9,7 +9,7 @@ const blogSchema = new mongoose.Schema({
   tags: {type: Array,},
   image: {type: String,},
   upvotes:{type: Number,},
-  comments: {type: Array,},
+  comments: {type: [String],},
   time_added: {type: Date, default: Date.now},
 });
 
