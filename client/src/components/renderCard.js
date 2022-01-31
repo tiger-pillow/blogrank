@@ -2,16 +2,17 @@ import React, { useNavigate } from 'react';
 import { Card, Button } from 'react-bootstrap';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import './components.css'
-const axios = require('axios').default;
+import axios from 'axios';
+//const axios = require('axios').default;
 
 const RenderCard = (item) => {
 
-  const ClickRouteChange = (item) => {
-    console.log("inside route change function", item._id);
-    axios.put('http://localhost:4000/incrementUpvote',item); 
+  const ClickRouteChange = (id) => {
+    console.log("inside route change function", id);
+    axios.put('http://localhost:4000/incrementUpvote', {id: id}); 
   }
 
-  return (
+  return ( 
     <Card className='Card' key={item._id}>
       <Card.Header as="h5">{item.name}</Card.Header>
       <Card.Body>
@@ -22,7 +23,7 @@ const RenderCard = (item) => {
           upvotes: {item.upvotes}
         </Card.Text> 
         <br></br>
-        <Button onClick = {ClickRouteChange(item)}> <ThumbUpIcon/> Like! </Button>
+        <Button onClick = {() => {ClickRouteChange(item._id)}}> <ThumbUpIcon/> Like! </Button>
       </Card.Body>
     </Card>
   )
