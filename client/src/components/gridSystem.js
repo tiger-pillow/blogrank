@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {Container, Row, Col } from 'react-bootstrap';
 
-const GridSystem = ({colCount, children}) =>{
+const GridSystem = ({colCount, children, md}) =>{
   let rowCount = Math.floor(children.length/ colCount) + 1
   // console.log("col count is :", colCount);
   // console.log("row count is :", rowCount);
@@ -31,7 +31,7 @@ const GridSystem = ({colCount, children}) =>{
     for (let col = 0; col < colCount; col++){
       if (index < children.length){
         cols.push(
-          <Col>
+          <Col md = {md}>
             {children[index]}
           </Col> )
       }
