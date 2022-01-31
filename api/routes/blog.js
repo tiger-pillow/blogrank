@@ -2,10 +2,36 @@ const express = require("express");
 const router = express.Router();
 const Blog = require("../models/blogSchema.js");
 
+
+router.put("/incrementUpvote", function (req, res) {
+  console.log("number:", req.body.id);
+  Blog.findById(req.body.id, (error, blog) => {
+    console.log(blog.upvotes);
+    if(blog.upvotes != null ){
+      blog.upvotes = blog.upvotes + 1;
+      console.log("hahaha", blog.upvotes)
+      blog.save(); 
+      res.send("updated"); 
+    }
+  })
+  
+}); 
+
+// increase upvotes counter
+router.put("/increaseUpvotes/:id", function (req, res) {
+  Blog.findOneAndUpdate({ _id: req.params.id }, req.body.upvotes).then(function (blog) {
+    Blog.findOne({ _id: req.params.id }).then(function (blog) {
+      res.send(blog);
+    });
+  });
+});
+
+
 router.post("/insertBlogYiyuan", function (req, res) {
   const newBlog = new Blog({
     name: req.body.name,
     url: req.body.url,
+    upvotes: 0, 
     author: req.body.author,
     comments:[req.body.comment],
   });
@@ -34,13 +60,5 @@ router.get("/filters", function (req, res) {
     })
   });
 
-// increase upvotes counter
-router.put("/increaseUpvotes/:id", function (req, res){
-    Blog.findOneAndUpdate({_id: req.params.id},req.body.upvotes).then(function(blog){
-        Blog.findOne({_id: req.params.id}).then(function(blog){
-            res.send(blog);
-        });
-    });
-});
 
 module.exports = router;
