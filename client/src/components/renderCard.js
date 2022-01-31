@@ -9,7 +9,7 @@ const RenderCard = (item) => {
       });
   }
   return (
-    <Card key={item._id}>
+    <Card className='Card' key={item._id}>
       <Card.Header as="h5">{item.name}</Card.Header>
       <Card.Body>
         <Card.Text>
