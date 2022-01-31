@@ -15,8 +15,6 @@ const BlogCard = () => {
     setItems(items);
   };
 
-  
-
   return (
     <div class="container-md pt-5">
       <GridSystem colCount ={3}>

@@ -1,7 +1,22 @@
 import React, { handleChange, handleSubmit } from 'react';
 
 const SubmitForm = () => {
-  
+  super(props);
+  this.state = { value: '' };
+
+  this.handleChange = this.handleChange.bind(this);
+  this.handleSubmit = this.handleSubmit.bind(this);
+}
+
+handleChange =(event) => {
+  this.setState({ value: event.target.value });
+}
+
+handleSubmit = (event) => {
+  alert('A name was submitted: ' + this.state.value);
+  event.preventDefault();
+}
+
   return (
     <div class="container-md py-600">
       <form method="POST" action="/insertBlogYiyuan">
@@ -22,7 +37,7 @@ const SubmitForm = () => {
 
         <div class="mb-3">
           <label> Reasons for recommending this blog </label>
-          <textarea name="comment" class="form-control"  rows="3" placeholder="I like it because..."></textarea>
+          <textarea name="comments" class="form-control"  rows="3" placeholder="I like it because..."></textarea>
         </div>
         
         <button type="submit" class="btn btn-primary">Submit</button> 

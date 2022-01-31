@@ -6,10 +6,10 @@ const blogSchema = new mongoose.Schema({
   name: { type: String, },
   url: { type: String, },
   author: {type: String,},
-  tags: {type: Array,},
+  tags: { type: String },
   image: {type: String,},
   upvotes:{type: Number,},
-  comments: {type: [String],},
+  comments: {type: Array,},
   time_added: {type: Date, default: Date.now},
 });
 
