@@ -1,15 +1,16 @@
-import React, { useNavigate } from 'react';
+import React, { useNavigate, useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import './components.css'
 import axios from 'axios';
-//const axios = require('axios').default;
 
 const RenderCard = (item) => {
-
+  const [cardItem, setCardItem] = useState(item);
   const ClickRouteChange = (id) => {
     console.log("inside route change function", id);
-    axios.put('http://localhost:4000/incrementUpvote', {id: id}); 
+    axios.put('http://localhost:4000/incrementUpvote', {id: id}).then(()=>{
+      return 
+    })
   }
 
   return ( 
