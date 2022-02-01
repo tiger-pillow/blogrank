@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react'; //{ useEffect, useState }
 import {Container, Row, Col } from 'react-bootstrap';
 
 const GridSystem = ({colCount, children, md}) =>{

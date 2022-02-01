@@ -1,4 +1,4 @@
-import React, { handleChange, handleSubmit } from 'react';
+import React from 'react'; //, { handleChange, handleSubmit } 
 
 const SubmitForm = () => {
   

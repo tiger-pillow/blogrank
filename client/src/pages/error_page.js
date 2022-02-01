@@ -1,6 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import React from 'react';
-import Navigation from '../components/Navigation'
 
 const ErrorPage = ()=>{
   return (
