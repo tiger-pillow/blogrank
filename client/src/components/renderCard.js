@@ -5,7 +5,7 @@ import './components.css'
 import axios from 'axios';
 
 const RenderCard = (item) => {
- // const [upvotes, setUpvotes] = useState({upvotes: item.upvotes});
+  const [upvotes, setUpvotes] = useState(0);
   const ClickRouteChange = (id) => {
     console.log("inside route change function", id);
     axios.put('http://localhost:4000/incrementUpvote', {id: id}).then(()=>{
@@ -19,7 +19,7 @@ const RenderCard = (item) => {
       <Card.Body>
         <Card.Text>
           by: {item.author} <br></br>
-          comments: <ul> {item.comments.map(oneComment => <li> {oneComment}</li>
+          comments: <ul> {item.comments.map((oneComment, index) => <li key ={index}> {oneComment}</li>
             )} </ul>
           upvotes: {item.upvotes}
         </Card.Text> 

@@ -19,7 +19,7 @@ const BlogCard = () => {
     <div class="container-md pt-5">
       <GridSystem colCount ={3} md={4}>
         { 
-          items.map(item=> (RenderCard(item))) 
+          items.map((item)=> (RenderCard(item))) 
         }
       </GridSystem>
     </div>
