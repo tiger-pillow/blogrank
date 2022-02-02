@@ -52,7 +52,8 @@ const BlogCard = () => {
             upvotes: {item.upvotes}
           </Card.Text>
           <br></br>
-          <Button onClick={() => { upVote(item._id) }}> <ThumbUpIcon /> Like! </Button>
+          <Button type="button" className='CardButton btn btn-primary' onClick={() => { upVote(item._id) }}> <ThumbUpIcon /> Like! </Button>
+          <Button type="button" className='CardButton btn btn-primary' > Go to site </Button>
         </Card.Body>
       </Card>
     )
