@@ -13,22 +13,13 @@ const BlogCard = () => {
     axios.get("http://localhost:4000/getAllBlogs")
       .then((response) => {
         setItems(response.data)
-        console.log("useEffect setup", items);
       })
       .catch(() => {
         console.log('ERR inside useEffect');
       });
   }, []); 
 
-
-  // setListOfFriends(
-  //   listOfFriends.map((val) => {
-  //     return val._id == id ? { _id: id, name: val.name, age: newAge } : val;
-  //   })
-  // );
-
   const upVote = (id) => {
-    console.log("inside upVote function", id);
     axios.put('http://localhost:4000/incrementUpvote', { id: id })
       .then(()=>{
         setItems(
@@ -47,15 +38,12 @@ const BlogCard = () => {
       .catch(()=>{
         console.log("Upvote error ");
       })
-      
   }
 
   const makeCard = (item) => {
-    console.log("inside makeCard, item is", item);
-    //setUpvotes(item.upvotes)
     return(
       <Card className='Card' key={item._id}>
-        <Card.Header as="h5">{item.name}</Card.Header>
+        <Card.Header as="h5"><a href={item.url}>{item.name}</a></Card.Header>
         <Card.Body>
           <Card.Text>
             by: {item.author} <br></br>
