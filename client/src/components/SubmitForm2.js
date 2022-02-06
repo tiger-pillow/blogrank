@@ -1,52 +1,57 @@
-import React, { handleChange, handleSubmit } from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 
 const SubmitForm = () => {
-  super(props);
-  this.state = { value: '' };
 
-  this.handleChange = this.handleChange.bind(this);
-  this.handleSubmit = this.handleSubmit.bind(this);
-}
-
-handleChange =(event) => {
-  this.setState({ value: event.target.value });
-}
-
-handleSubmit = (event) => {
-  alert('A name was submitted: ' + this.state.value);
-  event.preventDefault();
-}
-
+  const [name, setName] = useState("");
+  const [url, setURL] = useState("");
+  const [author, setAuthor] = useState("");
+  const [comment, setComment] = useState([]); 
+ 
+  const submitForm = async() => {
+    console.log("name is ", name);
+     await axios.post('http://localhost:4000/insertBlogYiyuan', {
+      name: name, 
+      url: url, 
+      author: author,
+      upvotes:0, 
+      comment: [comment]
+    })
+      .then((response) => {
+        // return (<h1>{response.status}</h1>)
+      
+        })
+      .catch(() => { 
+        console.log("ERR in new submit form")
+        })
+  }
   return (
     <div class="container-md py-600">
-      <form method="POST" action="/insertBlogYiyuan">
+      <form >
         <div class="mb-3">
           <label class="form-label"> Blog Name </label>
-          <input class="form-control" type="text" name="name" placeholder="Jane's site...."></input>
+          <input class="form-control" type="text" onChange = {(event) => setName(event.target.value)}placeholder="Jane's site...."></input>
         </div>
 
         <div class="mb-3">
           <label class="form-label"> Blog URL </label>
-          <input class="form-control" type="text" name="url" placeholder='google.com'></input>
+          <input class="form-control" type="text" onChange={(event) => setURL(event.target.value)} placeholder='google.com'></input>
         </div>
 
         <div class="mb-3">
           <label class="form-label"> Author </label>
-          <input class="form-control" type="text" name="author" placeholder='Jane Doe..'></input>
+          <input class="form-control" type="text" onChange={(event) => setAuthor(event.target.value)} placeholder='Jane Doe..'></input>
         </div>
 
         <div class="mb-3">
-          <label> Reasons for recommending this blog </label>
-          <textarea name="comments" class="form-control"  rows="3" placeholder="I like it because..."></textarea>
+          <label> Reasons for recommending this blog haha </label>
+          <textarea name="comments" class="form-control" onChange={(event) => setComment(event.target.value)}   rows="3" placeholder="I like it because..."></textarea>
         </div>
         
-        <button type="submit" class="btn btn-primary">Submit</button> 
+        <button type="submit" class="btn btn-primary" onSubmit={submitForm}>Submit</button> 
       </form>
     </div>
   )
 }
 
 export default SubmitForm; 
-
-// can be useful: 
-//onClick={() => { useNavigate("/") }}  

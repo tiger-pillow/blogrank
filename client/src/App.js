@@ -4,6 +4,7 @@ import SubmitFormPage from './pages/submit_form'
 import Home from './pages/home'
 import ErrorPage from './pages/error_page'
 import About from './pages/about'; 
+import Test from './pages/test'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App(){
@@ -15,6 +16,7 @@ function App(){
           <Route path="/" element={ <Home/> } />
           <Route path="/about" element={<About/>}/>
           <Route path="/submitForm" element={<SubmitFormPage/>} />
+          <Route path="/test" element={<Test />} />
           <Route path="*" element = {<ErrorPage/>} />
         </Routes>
       </Router>

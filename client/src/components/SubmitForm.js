@@ -1,7 +1,7 @@
 import React from 'react'; //, { handleChange, handleSubmit } 
 
 const SubmitForm = () => {
-  
+
   return (
     <div class="container-md py-600">
       <form method="POST" action="/insertBlogYiyuan">

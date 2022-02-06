@@ -7,7 +7,6 @@ import axios from 'axios';
 
 const BlogCard = () => {
   const [items, setItems] = useState([]);
-  console.log("original items is", items);
 
   useEffect(() => { // get the list of cards to Items
     axios.get("http://localhost:4000/getAllBlogs")
@@ -22,9 +21,10 @@ const BlogCard = () => {
   const upVote = (id) => {
     axios.put('http://localhost:4000/incrementUpvote', { id: id })
       .then(()=>{
+        console.log("increased vpvotes")
         setItems(
           items.map((item) => {
-            if (item._id == id){
+            if (item._id === id){
               item.upvotes = item.upvotes + 1; 
               return item;
             }
@@ -43,7 +43,7 @@ const BlogCard = () => {
   const makeCard = (item) => {
     return(
       <Card className='Card' key={item._id}>
-        <Card.Header as="h5"><a href={item.url}>{item.name}</a></Card.Header>
+        <Card.Header as="h5"><a className="link-secondary" href={"gg"}>{item.name}</a></Card.Header>
         <Card.Body>
           <Card.Text>
             by: {item.author} <br></br>
@@ -53,7 +53,7 @@ const BlogCard = () => {
           </Card.Text>
           <br></br>
           <Button type="button" className='CardButton btn btn-primary' onClick={() => { upVote(item._id) }}> <ThumbUpIcon /> Like! </Button>
-          <Button type="button" className='CardButton btn btn-primary' > Go to site </Button>
+          <a href={item.url}><Button type="button" className='CardButton btn btn-primary' > Go to site </Button></a>
         </Card.Body>
       </Card>
     )

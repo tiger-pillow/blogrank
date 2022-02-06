@@ -14,8 +14,6 @@ const Navigation = () => {
               <Nav.Link href="/editors_pick">Editor's Pick</Nav.Link>
               <Nav.Link href="/submitForm">Submit</Nav.Link>
             </Nav>
-            
-            
 
             <NavDropdown class="d-flex justify-content-right" title="Categories" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Tech</NavDropdown.Item>
