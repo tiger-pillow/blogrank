@@ -9,12 +9,11 @@ const Test = () => {
   const [url2, setUrl2] = useState("http://txti.es/");
 
   const submitlinks = async () => { 
-    await axios.post('http://localhost:4000/sendlinks', {
+    await axios.post('https://blogrank.herokuapp.com/sendlinks', {
       url1: url1,
       url2: url2
     })
     .then((response)=>{
-      console.log("received post reply", response); 
       setHtmlText(response.data[0]);
       setHtmlText1(response.data[1]);
     })
@@ -31,7 +30,7 @@ const Test = () => {
         <Card className="col URL-Card">
             <div className="card-body">
               <h5 className="card-title">First URL</h5>
-            <input onChange={(event) => setUrl1(event.target.value)}  placeholder="nytimes.com" />
+            <input onChange={(event) => setUrl1(event.target.value)} placeholder="http://txti.es/" />
             </div>
         </Card>    
 

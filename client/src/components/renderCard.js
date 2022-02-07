@@ -8,7 +8,7 @@ const RenderCard = (item) => {
   const [upvotes, setUpvotes] = useState(0);
   const ClickRouteChange = (id) => {
     console.log("inside route change function", id);
-    axios.put('http://localhost:4000/incrementUpvote', {id: id}).then(()=>{
+    axios.put('https://blogrank.herokuapp.com/incrementUpvote', {id: id}).then(()=>{
       console.log("inside then")
     })
   }

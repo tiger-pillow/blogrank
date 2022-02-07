@@ -9,7 +9,7 @@ const BlogCard = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => { // get the list of cards to Items
-    axios.get("http://localhost:4000/getAllBlogs")
+    axios.get("https://blogrank.herokuapp.com/getAllBlogs")
       .then((response) => {
         setItems(response.data)
       })
@@ -19,7 +19,7 @@ const BlogCard = () => {
   }, []); 
 
   const upVote = (id) => {
-    axios.put('http://localhost:4000/incrementUpvote', { id: id })
+    axios.put('https://blogrank.herokuapp.com/incrementUpvote', { id: id })
       .then(()=>{
         console.log("increased vpvotes")
         setItems(
