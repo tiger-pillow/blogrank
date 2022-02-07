@@ -1,26 +1,97 @@
 const express = require("express");
 const router = express.Router();
 const Blog = require("../models/blogSchema.js");
-const fs = require('fs');
+const Link = require("../models/linkSchema.js");
+const fs = require('fs').promises;
 const path = require('path');
+const { Builder, By, Key, until } = require('selenium-webdriver');
+let counter = 0; 
 
-router.get('/getsavedpage', function(req, res){
-  const text = "";
-  const newpath = path.join(__dirname, "../selenium/newfile3.html")
-  fs.readFile(newpath, 'utf8', (err, data) => {
+const load_and_save_html = async (data) =>{
+  let driver = await new Builder().forBrowser('chrome').build();
+  const filename = 'URL_file' + counter;
+
+  /* load selenium web driver and save file */
+  try{
+    await driver.get(data); 
+    const pageSource = await driver.getPageSource();
+
+    fs.writeFile(filename, pageSource, function (err) {
+      if (err) {
+        return console.log(err);
+      }
+      counter = counter + 1
+    });
+  }
+  catch(err) {
+    console.log("load_and_save_html function problem")
+  }
+  finally{
+    await driver.quit();
+    return filename; 
+  }
+  
+}
+
+/* get links from the user, generate and save html files, read and return files */
+router.post('/sendlinks', async function (req, res) {
+  const newLink = new Link({
+    url1: req.body.url1,
+    url2: req.body.url2,
+  })
+  newLink.save()
+ 
+  const name1 = "../" + await load_and_save_html(req.body.url1);
+  const name2 = "../" + await load_and_save_html(req.body.url2);
+
+  /* read saved file and respond */
+  const file0path = path.join(__dirname, name1)
+  const file1path = path.join(__dirname, name2)
+  let file0 = "";
+  let file1 = "";
+
+  fs.readFile(file0path, 'utf8', (err, data) => {
     if (err) {
-      console.error(err)
+      console.error(err);
+      return;
+    }
+    else {
+      //console.log("test if read successful", data);
+      file0 = data;
+      return
+    }
+  });
+
+  fs.readFile(file1path, 'utf8', (err, data) => {
+    if (err) {
+      console.error(err);
       return
     }
     else {
-      const text = data;
-      console.log('text is', text);
-      console.log('text finished printing');
-      res.send(data);
+      file1 = data;
+      return
     }
   });
-});
 
+ async function helperfunction (file0path, file1path){ 
+   try{
+     file0 = await fs.readFile(file0path, 'utf8')
+     file1 = await fs.readFile(file1path, 'utf8')
+   }
+   catch(err){
+      console.log ("error in loading file", err);
+   }
+   finally{
+    res.send([file0, file1]);
+   }
+ }
+   
+  helperfunction(file0path, file1path);
+
+})
+
+
+///////////////////////// links regarding blog  //////////////////////////
 router.put("/incrementUpvote", function (req, res) {
   Blog.findById(req.body.id, (error, blog) => {
     if(blog.upvotes != null ){
