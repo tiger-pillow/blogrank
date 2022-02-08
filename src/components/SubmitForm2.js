@@ -8,19 +8,15 @@ const SubmitForm = () => {
   const [author, setAuthor] = useState("");
   const [comment, setComment] = useState([]); 
  
-  const submitForm = async() => {
+  const submitForm = () => {
     console.log("name is ", name);
-    await axios.post('https://blogrank.herokuapp.com/insertBlogYiyuan', {
+    axios.post('https://blogrank.herokuapp.com/insertBlogYiyuan', {
       name: name, 
       url: url, 
       author: author,
       upvotes:0, 
       comment: [comment]
     })
-      .then((response) => {
-        // return (<h1>{response.status}</h1>)
-      
-        })
       .catch(() => { 
         console.log("ERR in new submit form")
         })
