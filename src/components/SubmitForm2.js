@@ -10,7 +10,7 @@ const SubmitForm = () => {
  
   const submitForm = async() => {
     console.log("name is ", name);
-     await axios.post('http://localhost:4000/insertBlogYiyuan', {
+    await axios.post('https://blogrank.herokuapp.com/insertBlogYiyuan', {
       name: name, 
       url: url, 
       author: author,
