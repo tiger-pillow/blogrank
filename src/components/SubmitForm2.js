@@ -44,7 +44,7 @@ const SubmitForm = () => {
           <textarea name="comments" class="form-control" onChange={(event) => setComment(event.target.value)}   rows="3" placeholder="I like it because..."></textarea>
         </div>
         
-        <button type="submit" class="btn btn-primary" onClick={()=>{submitForm()})}>Submit</button> 
+        <button type="submit" class="btn btn-primary" onClick={()=>{submitForm()}}>Submit</button> 
       </form>
     </div>
   )
