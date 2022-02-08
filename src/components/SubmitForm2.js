@@ -1,0 +1,57 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+
+const SubmitForm = () => {
+
+  const [name, setName] = useState("");
+  const [url, setURL] = useState("");
+  const [author, setAuthor] = useState("");
+  const [comment, setComment] = useState([]); 
+ 
+  const submitForm = async() => {
+    console.log("name is ", name);
+     await axios.post('http://localhost:4000/insertBlogYiyuan', {
+      name: name, 
+      url: url, 
+      author: author,
+      upvotes:0, 
+      comment: [comment]
+    })
+      .then((response) => {
+        // return (<h1>{response.status}</h1>)
+      
+        })
+      .catch(() => { 
+        console.log("ERR in new submit form")
+        })
+  }
+  return (
+    <div class="container-md py-600">
+      <form >
+        <div class="mb-3">
+          <label class="form-label"> Blog Name </label>
+          <input class="form-control" type="text" onChange = {(event) => setName(event.target.value)}placeholder="Jane's site...."></input>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label"> Blog URL </label>
+          <input class="form-control" type="text" onChange={(event) => setURL(event.target.value)} placeholder='google.com'></input>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label"> Author </label>
+          <input class="form-control" type="text" onChange={(event) => setAuthor(event.target.value)} placeholder='Jane Doe..'></input>
+        </div>
+
+        <div class="mb-3">
+          <label> Reasons for recommending this blog haha </label>
+          <textarea name="comments" class="form-control" onChange={(event) => setComment(event.target.value)}   rows="3" placeholder="I like it because..."></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary" onSubmit={submitForm}>Submit</button> 
+      </form>
+    </div>
+  )
+}
+
+export default SubmitForm; 

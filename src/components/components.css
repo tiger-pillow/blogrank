@@ -1,0 +1,14 @@
+.Comment{
+    color:grey;
+    font-style: italic; 
+}
+
+.Card{
+    margin-top: 5px;
+    margin-bottom: 8px;
+}
+
+.CardButton{
+    margin-right: 2px; 
+    height: 2rem;
+}
