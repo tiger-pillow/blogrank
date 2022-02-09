@@ -18,17 +18,6 @@ const SubmitForm = () => {
       upvotes:0, 
       comment: [comment]
     })
-      .then(async (response)=>{
-        if (response.status == 200){
-          await axios.post('https://blogrank.herokuapp.com/insertBlogYiyuan', {
-            name: name,
-            url: url,
-            author: author,
-            upvotes: 0,
-            comment: [comment]
-          })
-        }
-      })
       .catch(() => { 
         console.log("ERR in new submit form")
         })
