@@ -18,7 +18,7 @@ const SubmitForm = () => {
       upvotes:0, 
       comment: [comment]
     })
-      .then((response)=>{
+      .then(async (response)=>{
         if (response.status == 200){
           await axios.post('https://blogrank.herokuapp.com/insertBlogYiyuan', {
             name: name,
