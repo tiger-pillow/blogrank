@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { response } from 'express';
 
 const SubmitForm = () => {
 
@@ -17,6 +18,17 @@ const SubmitForm = () => {
       upvotes:0, 
       comment: [comment]
     })
+      .then((response)=>{
+        if (response == 200){
+          axios.post('https://blogrank.herokuapp.com/insertBlogYiyuan', {
+            name: name,
+            url: url,
+            author: author,
+            upvotes: 0,
+            comment: [comment]
+          })
+        }
+      })
       .catch(() => { 
         console.log("ERR in new submit form")
         })
