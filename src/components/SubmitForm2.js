@@ -9,9 +9,9 @@ const SubmitForm = () => {
   const [author, setAuthor] = useState("");
   const [comment, setComment] = useState([]); 
  
-  const submitForm = () => {
+  const submitForm = async() => {
     console.log("name is ", name);
-    axios.post('https://blogrank.herokuapp.com/insertBlogYiyuan', {
+    await axios.post('https://blogrank.herokuapp.com/insertBlogYiyuan', {
       name: name, 
       url: url, 
       author: author,
@@ -19,8 +19,8 @@ const SubmitForm = () => {
       comment: [comment]
     })
       .then((response)=>{
-        if (response == 200){
-          axios.post('https://blogrank.herokuapp.com/insertBlogYiyuan', {
+        if (response.status == 200){
+          await axios.post('https://blogrank.herokuapp.com/insertBlogYiyuan', {
             name: name,
             url: url,
             author: author,
