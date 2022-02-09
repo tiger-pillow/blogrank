@@ -9,6 +9,9 @@ const about = () => {
         <h6 class="mt-2000">This site is a learning project by Tianyi and Yiyuan, meant to congregate interesting independent blogs, 
           categorize them and rank them. 
         </h6>
+        <iframe width="900" height="1500"  src="https://tiger-pillow.github.io/" />
+        <iframe width="900" height="1500" src="https://www.outsideonline.com/" />
+        <iframe width="900" height="1500" src="https://www.nytimes.com/" />
       </div>
     </div>
   )
